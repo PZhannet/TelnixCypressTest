@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "e2e": "cypress open"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PZhannet/TelnixCypressTest.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PZhannet/TelnixCypressTest/issues"
+  },
+
   "dependencies": {
     "cypress": "^11.2.0"
   },
