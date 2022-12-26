@@ -1,15 +1,20 @@
 /// <reference types="cypress" />
-import typeLoginInData from "../pages/loginInPage.page"
+import loginPage from "../pages/loginPage.page"
 import { generateString } from "../fixtures/helper/generateText"
 
-describe('ID 1 Check Login Page with valid but not registered data', () => {
-  it('should appear error message after valid but not registered data is entered in Log In page', () => {
+describe('Login Page ', () => {
+  beforeEach(() =>{
     cy.visit('/')
     cy.clickAcceptAndClose()
-    typeLoginInData.clickLogInLink()
-    typeLoginInData.enterEmail(generateString(5)+'@gmail.com')
-    typeLoginInData.enterPassword(generateString(5))
-    typeLoginInData.clickLogInButton()
-    cy.contains('That email and password combination is not valid, or your browser could not be authenticated via recaptcha. Please try again.').should('be.visible')
+    loginPage.clickLogInLink()
+  })
+  it('Id 1 Check Login with valid but not registered Data in Login Page', () => {
+    loginPage.enterEmail(generateString(5)+'@gmail.com')
+    loginPage.enterPassword(generateString(5))
+    loginPage.clickLogInButton()
+    loginPage.errorMessageVisible()
+  })
+  it('Id 5 Check "Log in with Microsoft" button on Log In Page is visible', () => {
+    loginPage.checkBtnLogInWhithMicrosoftExist()
   })
 })
